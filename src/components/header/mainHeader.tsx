@@ -8,7 +8,7 @@ function MainHeader({}: Props) {
   return (
     <header>
       {/* Mobile navigation */}
-      {/* <MobileNav /> */}
+      <MobileNav />
       {/* Desktop navigation */}
       <DestktopNav />
     </header>

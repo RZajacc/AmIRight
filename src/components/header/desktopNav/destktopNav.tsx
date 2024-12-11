@@ -1,10 +1,6 @@
-"use client";
-
 import React from "react";
 import styles from "./desktopNav.module.css";
-import NavLink from "./navLink";
-import Image from "next/image";
-import userSVG from "@/assets/user-svgrepo-com.svg";
+import NavLink from "@/components/ui/links/navLink";
 
 type Props = {};
 
@@ -27,10 +23,9 @@ function DestktopNav({}: Props) {
             <NavLink href="/polls">Polls</NavLink>
           </li>
           <li>
-            <NavLink href="/signin">Sign in</NavLink>
-          </li>
-          <li>
-            <NavLink href="/signup">Get started</NavLink>
+            <NavLink href="/user" about="Get started">
+              Get Started
+            </NavLink>
           </li>
         </div>
       </ul>

@@ -1,0 +1,23 @@
+.buttonStyle {
+  height: 40px;
+  width: 40px;
+  padding: 0.3rem;
+  display: grid;
+  justify-content: center;
+  row-gap: 0.3rem;
+  & span {
+    width: 40px;
+    height: 4px;
+    border-radius: 0.7rem;
+    background-color: white;
+    box-shadow: 1px 1px 5px black;
+  }
+}
+
+.buttonStyle:hover {
+  cursor: pointer;
+  & span {
+    background-color: rgb(255, 25, 140);
+    transition: all 0.7s ease-in;
+  }
+}

@@ -22,15 +22,25 @@
     & a {
       display: inline-block;
       padding: 0.6rem;
-      border-radius: 1rem;
+      border-radius: 0.4rem;
       transition: all 0.5s ease-out;
+    }
+
+    & a[about="Get started"] {
+      background-color: rgb(245, 245, 245);
+      color: rgb(42, 42, 42);
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgb(155, 155, 155);
+      border: 2px solid black;
     }
 
     & a:hover {
       background-color: rgb(250, 211, 84);
-      color: rgb(42, 42, 42);
+      color: rgb(255, 25, 140);
+      font-weight: bold;
       transition: all 0.7s ease-in;
       box-shadow: 2px 2px 5px rgb(155, 155, 155);
+      border: 2px solid black;
     }
   }
 }

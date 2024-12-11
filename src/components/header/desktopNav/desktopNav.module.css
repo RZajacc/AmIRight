@@ -1,5 +1,5 @@
 .navWrapper {
-  background: linear-gradient(90deg, rgb(42, 42, 42), rgb(97, 97, 97));
+  background: linear-gradient(90deg, rgb(42, 42, 42), rgb(84, 84, 84));
 }
 
 .navMain {
@@ -22,7 +22,7 @@
     & a {
       display: inline-block;
       padding: 0.6rem;
-      border-radius: 0.7rem;
+      border-radius: 1rem;
       transition: all 0.5s ease-out;
     }
 
@@ -33,6 +33,11 @@
       box-shadow: 2px 2px 5px rgb(155, 155, 155);
     }
   }
+}
+
+.home_link {
+  font-weight: bold;
+  font-family: var(--font-geist-mono);
 }
 
 @media (min-width: 600px) {

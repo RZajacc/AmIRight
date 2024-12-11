@@ -3,6 +3,8 @@
 import React from "react";
 import styles from "./desktopNav.module.css";
 import NavLink from "./navLink";
+import Image from "next/image";
+import userSVG from "@/assets/user-svgrepo-com.svg";
 
 type Props = {};
 
@@ -12,7 +14,9 @@ function DestktopNav({}: Props) {
       <ul className={styles.navMain}>
         <div className={styles.navMain__section}>
           <li>
-            <NavLink href="/">Am I right</NavLink>
+            <NavLink href="/">
+              <span className={styles.home_link}>Am I right?</span>
+            </NavLink>
           </li>
         </div>
         <div className={styles.navMain__section}>
@@ -23,7 +27,10 @@ function DestktopNav({}: Props) {
             <NavLink href="/polls">Polls</NavLink>
           </li>
           <li>
-            <NavLink href="/user">User</NavLink>
+            <NavLink href="/signin">Sign in</NavLink>
+          </li>
+          <li>
+            <NavLink href="/signup">Get started</NavLink>
           </li>
         </div>
       </ul>

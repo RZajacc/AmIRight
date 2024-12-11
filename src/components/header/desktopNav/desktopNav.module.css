@@ -1,5 +1,5 @@
 .navWrapper {
-  background-color: rgb(42, 42, 42);
+  background: linear-gradient(90deg, rgb(42, 42, 42), rgb(97, 97, 97));
 }
 
 .navMain {

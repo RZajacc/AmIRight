@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
 import styles from "./desktopNav.module.css";
 import NavLink from "./navLink";
@@ -24,7 +23,7 @@ function DestktopNav({}: Props) {
             <NavLink href="/polls">Polls</NavLink>
           </li>
           <li>
-            <Link href={"/"}>User</Link>
+            <NavLink href="/user">User</NavLink>
           </li>
         </div>
       </ul>

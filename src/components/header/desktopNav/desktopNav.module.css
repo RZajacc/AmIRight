@@ -1,0 +1,52 @@
+.navWrapper {
+  background-color: rgb(42, 42, 42);
+}
+
+.navMain {
+  display: none;
+  justify-content: space-between;
+}
+
+.navMain__section {
+  display: flex;
+  color: rgb(245, 245, 245);
+  font-weight: bolder;
+  list-style-type: none;
+
+  & li {
+    padding: 0.6rem;
+
+    & a {
+      display: inline-block;
+      padding: 0.6rem;
+      border-radius: 0.7rem;
+      transition: all 0.5s ease-out;
+    }
+
+    & a:hover {
+      background-color: rgb(250, 211, 84);
+      color: rgb(42, 42, 42);
+      transition: all 0.7s ease-in;
+      box-shadow: 2px 2px 5px rgb(155, 155, 155);
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .navMain {
+    display: flex;
+    padding: 0.2rem 0rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .navMain {
+    padding: 0.2rem 3.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .navMain {
+    padding: 0.2rem 7rem;
+  }
+}

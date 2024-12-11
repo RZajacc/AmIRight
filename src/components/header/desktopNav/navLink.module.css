@@ -1,0 +1,6 @@
+.active {
+  background-color: rgb(250, 211, 84);
+  color: rgb(255, 25, 140);
+  box-shadow: 2px 2px 5px rgb(155, 155, 155);
+  font-weight: bold;
+}

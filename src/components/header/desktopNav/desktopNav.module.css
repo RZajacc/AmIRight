@@ -5,16 +5,19 @@
 .navMain {
   display: none;
   justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  font-size: large;
+  padding: 0.3rem 0;
 }
 
 .navMain__section {
   display: flex;
   color: rgb(245, 245, 245);
-  font-weight: bolder;
   list-style-type: none;
 
   & li {
-    padding: 0.6rem;
+    padding: 0.6rem 0.8rem;
 
     & a {
       display: inline-block;
@@ -35,18 +38,23 @@
 @media (min-width: 600px) {
   .navMain {
     display: flex;
-    padding: 0.2rem 0rem;
   }
 }
 
 @media (min-width: 768px) {
   .navMain {
-    padding: 0.2rem 3.5rem;
+    width: 80%;
   }
 }
 
 @media (min-width: 992px) {
   .navMain {
-    padding: 0.2rem 7rem;
+    width: 75%;
   }
 }
+
+/* @media (min-width: 1200px) {
+  .navMain {
+    padding: 0.2rem 9rem;
+  }
+} */

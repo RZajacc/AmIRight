@@ -10,6 +10,7 @@ function MainHeader({}: Props) {
     <header>
       <nav className={styles.navWrapper}>
         <ul className={styles.navMain}>
+          {/* Home page section */}
           <div className={styles.navMain__section}>
             <li>
               <NavLink href="/">
@@ -17,7 +18,8 @@ function MainHeader({}: Props) {
               </NavLink>
             </li>
           </div>
-          <div className={styles.navMain__section}>
+          {/* Main desktop nav section */}
+          <div className={styles.navMain__section} aria-label="desktop-nav">
             <li>
               <NavLink href="/issues">Current issues</NavLink>
             </li>
@@ -25,10 +27,13 @@ function MainHeader({}: Props) {
               <NavLink href="/polls">Polls</NavLink>
             </li>
             <li>
-              <NavLink href="/user" about="Get started">
+              <NavLink href="/user" aria-label="Get started">
                 Get Started
               </NavLink>
             </li>
+          </div>
+          {/* Hamburger menu section */}
+          <div className={styles.navMain__section} aria-label="hamburger">
             <li>
               <HamburgerButton />
             </li>

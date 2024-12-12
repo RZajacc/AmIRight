@@ -3,16 +3,23 @@
 }
 
 .navMain {
-  display: none;
+  display: flex;
   justify-content: space-between;
   width: 95%;
   margin: auto;
   font-size: large;
   padding: 0.3rem 0;
+
+  & div[aria-label="hamburger"] {
+    display: flex;
+  }
+
+  & div[aria-label="desktop-nav"] {
+    display: none;
+  }
 }
 
 .navMain__section {
-  display: flex;
   align-items: center;
   color: rgb(245, 245, 245);
   list-style-type: none;
@@ -27,7 +34,7 @@
       transition: all 0.5s ease-out;
     }
 
-    & a[about="Get started"] {
+    & a[aria-label="Get started"] {
       background-color: rgb(245, 245, 245);
       color: rgb(42, 42, 42);
       font-weight: bold;
@@ -53,7 +60,13 @@
 
 @media (min-width: 600px) {
   .navMain {
-    display: flex;
+    & div[aria-label="hamburger"] {
+      display: none;
+    }
+
+    & div[aria-label="desktop-nav"] {
+      display: flex;
+    }
   }
 }
 

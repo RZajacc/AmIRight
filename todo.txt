@@ -1,1 +1,0 @@
-1. Przejrzyj paddingi czy na pewno li potrzebuje padding i anchor, może starczy raz

@@ -13,6 +13,7 @@
 
 .navMain__section {
   display: flex;
+  align-items: center;
   color: rgb(245, 245, 245);
   list-style-type: none;
 

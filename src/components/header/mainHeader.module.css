@@ -10,7 +10,7 @@
   font-size: large;
   padding: 0.3rem 0;
 
-  & div[aria-label="hamburger"] {
+  & div[aria-label="mobile-nav"] {
     display: flex;
   }
 
@@ -58,9 +58,13 @@
   font-family: var(--font-geist-mono);
 }
 
+#mobileNav__item {
+  position: relative;
+}
+
 @media (min-width: 600px) {
   .navMain {
-    & div[aria-label="hamburger"] {
+    & div[aria-label="mobile-nav"] {
       display: none;
     }
 

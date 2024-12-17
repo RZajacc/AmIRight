@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./mainHeader.module.css";
 import NavLink from "../ui/links/navLink";
-import HamburgerButton from "../ui/buttons/hamburger/hamburgerButton";
+import HamburgerButton from "./hamburgerButton/hamburgerButton";
+import MobileNav from "./mobileNav/mobileNav";
 
 type Props = {};
 
@@ -33,9 +34,9 @@ function MainHeader({}: Props) {
             </li>
           </div>
           {/* Hamburger menu section */}
-          <div className={styles.navMain__section} aria-label="hamburger">
-            <li>
-              <HamburgerButton />
+          <div className={styles.navMain__section} aria-label="mobile-nav">
+            <li id={styles.mobileNav__item}>
+              <MobileNav />
             </li>
           </div>
         </ul>

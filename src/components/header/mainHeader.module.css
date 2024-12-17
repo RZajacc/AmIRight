@@ -53,6 +53,10 @@
   }
 }
 
+.navMain__section.visible {
+  filter: blur(1px);
+}
+
 .home_link {
   font-weight: bold;
   font-family: var(--font-geist-mono);

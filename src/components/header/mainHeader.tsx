@@ -1,18 +1,23 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "./mainHeader.module.css";
 import NavLink from "../ui/links/navLink";
-import HamburgerButton from "./hamburgerButton/hamburgerButton";
 import MobileNav from "./mobileNav/mobileNav";
 
 type Props = {};
 
 function MainHeader({}: Props) {
+  const [visible, setVisible] = useState(false);
   return (
     <header>
       <nav className={styles.navWrapper}>
         <ul className={styles.navMain}>
           {/* Home page section */}
-          <div className={styles.navMain__section}>
+          <div
+            className={`${styles.navMain__section} ${
+              visible ? styles.visible : ""
+            }`}
+          >
             <li>
               <NavLink href="/">
                 <span className={styles.home_link}>Am I right?</span>
@@ -36,7 +41,7 @@ function MainHeader({}: Props) {
           {/* Hamburger menu section */}
           <div className={styles.navMain__section} aria-label="mobile-nav">
             <li id={styles.mobileNav__item}>
-              <MobileNav />
+              <MobileNav visible={visible} setVisible={setVisible} />
             </li>
           </div>
         </ul>

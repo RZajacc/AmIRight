@@ -1,13 +1,13 @@
-"use client";
-import React, { useState } from "react";
-import HamburgerButton from "../hamburgerButton/hamburgerButton";
-import styles from "./mobileNave.module.css";
+import React, { SetStateAction } from "react";
+import HamburgerButton from "./hamburgerButton/hamburgerButton";
+import SideBar from "./sidebar/sideBar";
 
-type Props = {};
+type Props = {
+  visible: boolean;
+  setVisible: React.Dispatch<SetStateAction<boolean>>;
+};
 
-function MobileNav({}: Props) {
-  const [visible, setVisible] = useState(false);
-
+function MobileNav({ visible, setVisible }: Props) {
   return (
     <div>
       <HamburgerButton
@@ -15,14 +15,8 @@ function MobileNav({}: Props) {
           setVisible((prevState) => !prevState);
         }}
       />
-      <ul
-        className={`${styles.mobileNav__dropdown} ${
-          visible ? styles.visible : ""
-        }`}
-      >
-        <li>Home</li>
-        <li>Test</li>
-      </ul>
+      {/* Sidebar */}
+      <SideBar visible={visible} setVisible={setVisible} />
     </div>
   );
 }

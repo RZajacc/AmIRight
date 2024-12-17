@@ -1,0 +1,28 @@
+.sidebar {
+  position: fixed;
+  color: white;
+  background-color: rgb(84, 84, 84);
+  list-style-type: none;
+  width: 40%;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  transition: transform 1s;
+  transform: translateX(100%);
+}
+
+.sidebar.visible {
+  transition: transform 1s;
+  transform: translateX(0);
+}
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0.2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(60, 60, 60);
+}

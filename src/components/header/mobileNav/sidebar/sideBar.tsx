@@ -9,15 +9,13 @@ type Props = {
 };
 
 export default function SideBar({ visible, setVisible }: Props) {
+  const handleClosingSidebar = () => {
+    setVisible((prevVal) => !prevVal);
+  };
   return (
     <>
       <ul className={`${styles.sidebar} ${visible ? styles.visible : ""}`}>
-        <button
-          className={styles.cancelButton}
-          onClick={() => {
-            setVisible((prevVal) => !prevVal);
-          }}
-        >
+        <button className={styles.cancelButton} onClick={handleClosingSidebar}>
           <Image src={cancelButton} width={35} alt="Cancel button" />
         </button>
         <li>Home</li>
@@ -27,12 +25,8 @@ export default function SideBar({ visible, setVisible }: Props) {
       {visible && (
         <div
           className={styles.backdrop}
-          onClick={() => {
-            setVisible((prevVal) => !prevVal);
-          }}
-          onScroll={() => {
-            setVisible((prevVal) => !prevVal);
-          }}
+          onClick={handleClosingSidebar}
+          onScroll={handleClosingSidebar}
         />
       )}
     </>

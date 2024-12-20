@@ -16,7 +16,7 @@ export default function SideBar({ visible, setVisible }: Props) {
     <>
       <ul className={`${styles.sidebar} ${visible ? styles.visible : ""}`}>
         <button className={styles.cancelButton} onClick={handleClosingSidebar}>
-          <Image src={cancelButton} width={35} alt="Cancel button" />
+          <Image src={cancelButton} width={30} alt="Cancel button" />
         </button>
         <li>Home</li>
         <li>Test</li>

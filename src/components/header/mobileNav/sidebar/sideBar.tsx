@@ -2,6 +2,7 @@ import React, { SetStateAction } from "react";
 import styles from "./sidebar.module.css";
 import cancelButton from "@/assets/cancel-svgrepo-com.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   visible: boolean;
@@ -18,8 +19,30 @@ export default function SideBar({ visible, setVisible }: Props) {
         <button className={styles.cancelButton} onClick={handleClosingSidebar}>
           <Image src={cancelButton} width={30} alt="Cancel button" />
         </button>
-        <li>Home</li>
-        <li>Test</li>
+        <li>
+          <Link href={"/"} onClick={handleClosingSidebar}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link href={"/"} onClick={handleClosingSidebar}>
+            Current issues
+          </Link>
+        </li>
+        <li>
+          <Link href={"/"} onClick={handleClosingSidebar}>
+            Polls
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={"/"}
+            onClick={handleClosingSidebar}
+            aria-label="Get started"
+          >
+            Get started
+          </Link>
+        </li>
       </ul>
       {/* Backdrop */}
       {visible && (

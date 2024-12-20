@@ -2,7 +2,7 @@ import React, { SetStateAction } from "react";
 import styles from "./sidebar.module.css";
 import cancelButton from "@/assets/cancel-svgrepo-com.svg";
 import Image from "next/image";
-import Link from "next/link";
+import NavLink from "@/components/ui/links/navLink";
 
 type Props = {
   visible: boolean;
@@ -20,28 +20,28 @@ export default function SideBar({ visible, setVisible }: Props) {
           <Image src={cancelButton} width={30} alt="Cancel button" />
         </button>
         <li>
-          <Link href={"/"} onClick={handleClosingSidebar}>
+          <NavLink href="/" onClick={handleClosingSidebar}>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href={"/"} onClick={handleClosingSidebar}>
+          <NavLink href="/issues" onClick={handleClosingSidebar}>
             Current issues
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href={"/"} onClick={handleClosingSidebar}>
+          <NavLink href="/polls" onClick={handleClosingSidebar}>
             Polls
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
-            href={"/"}
+          <NavLink
+            href="/user"
             onClick={handleClosingSidebar}
             aria-label="Get started"
           >
             Get started
-          </Link>
+          </NavLink>
         </li>
       </ul>
       {/* Backdrop */}

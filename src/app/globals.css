@@ -16,7 +16,7 @@ a {
 
 body {
   display: grid;
-  background-color: beige;
+  background-color: azure;
   grid-template-rows: 72px auto;
   grid-template-areas:
     "navigation"

@@ -3,7 +3,7 @@ import React from "react";
 type Props = {};
 
 function User({}: Props) {
-  return <div>User</div>;
+  return <main>User</main>;
 }
 
 export default User;

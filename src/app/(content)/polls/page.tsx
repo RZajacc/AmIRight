@@ -3,7 +3,7 @@ import React from "react";
 type Props = {};
 
 function Polls({}: Props) {
-  return <div>Polls</div>;
+  return <main>Polls</main>;
 }
 
 export default Polls;

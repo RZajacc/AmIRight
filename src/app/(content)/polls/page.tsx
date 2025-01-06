@@ -1,8 +1,11 @@
-import React from "react";
+import { Metadata } from "next";
 
-type Props = {};
+export const metadata: Metadata = {
+  title: "Polls",
+  description: "Currently ongoing polls",
+};
 
-function Polls({}: Props) {
+function Polls() {
   return <main>Polls</main>;
 }
 

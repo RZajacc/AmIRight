@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "UserAuth",
+  title: "User",
   description: "Signup or login",
 };
 

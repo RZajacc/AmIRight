@@ -25,8 +25,10 @@ function AuthComponent() {
       ) : (
         <h3>Create a new account:</h3>
       )}
+
       {/* Selected form */}
       {loginSelected ? <LoginFrom /> : <SignupForm />}
+
       {/* Toggle between login and signup */}
       <p>
         {loginSelected ? formToggleSignup : formToggleLogin}

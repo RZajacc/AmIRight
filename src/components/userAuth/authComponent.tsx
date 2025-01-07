@@ -19,12 +19,15 @@ function AuthComponent() {
 
   return (
     <div className={styles.formContainer}>
+      {/* Header */}
       {loginSelected ? (
         <h3>Login to your account:</h3>
       ) : (
         <h3>Create a new account:</h3>
       )}
+      {/* Selected form */}
       {loginSelected ? <LoginFrom /> : <SignupForm />}
+      {/* Toggle between login and signup */}
       <p>
         {loginSelected ? formToggleSignup : formToggleLogin}
         <button onClick={formSelectHandler}>

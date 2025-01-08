@@ -11,32 +11,33 @@
     text-align: center;
   }
 
-  & button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: dodgerblue;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-
-  & button:hover {
-    animation-name: pulse;
-    animation-duration: 0.85s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
-
   & p {
     text-align: end;
     padding: 0.3rem;
   }
 }
 
+.toggle_button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: dodgerblue;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.toggle_button:hover {
+  animation-name: pulse;
+  animation-duration: 0.85s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 .authForm {
   display: grid;
+  row-gap: 0.4em;
   padding: 0.5rem 0;
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
 }
 

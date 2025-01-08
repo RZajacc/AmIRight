@@ -32,7 +32,7 @@ function AuthComponent() {
       {/* Toggle between login and signup */}
       <p>
         {loginSelected ? formToggleSignup : formToggleLogin}
-        <button onClick={formSelectHandler}>
+        <button onClick={formSelectHandler} className={styles.toggle_button}>
           {loginSelected ? "signup" : "login"}!
         </button>
       </p>

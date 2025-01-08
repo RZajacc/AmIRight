@@ -1,0 +1,14 @@
+.buttonStyle {
+  padding: 0.4rem;
+  background-color: rgb(42, 42, 42);
+  color: aliceblue;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.buttonStyle:hover {
+  background-color: aliceblue;
+  color: rgb(42, 42, 42);
+  transition: all 0.7s ease-in-out;
+}

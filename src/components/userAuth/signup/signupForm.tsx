@@ -23,7 +23,7 @@ function SignupForm({}: Props) {
         type="password"
         required
       />
-      <SubmitButton text="Submit" />
+      <SubmitButton text="Signup" />
     </form>
   );
 }

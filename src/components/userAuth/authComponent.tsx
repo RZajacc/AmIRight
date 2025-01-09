@@ -2,8 +2,8 @@
 
 import styles from "./authComponent.module.css";
 import { useState } from "react";
-import LoginFrom from "./login/loginFrom";
-import SignupForm from "./signup/signupForm";
+import LoginFrom from "../ui/forms/loginFrom";
+import SignupForm from "../ui/forms/signupForm";
 
 function AuthComponent() {
   const [loginSelected, setLoginSelected] = useState(true);

@@ -5,10 +5,10 @@
 .input {
   border-radius: 3px;
   outline: none;
-  border: 1px solid black;
+  border: 1px solid var(--dark);
   padding: 0.4rem;
 
   &:focus-visible {
-    border: 2px solid dodgerblue;
+    border: 2px solid var(--light-blue);
   }
 }

@@ -1,6 +1,13 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: #ffffff;
+  --light: #f0f8ff;
+  --dark: #2a2a2a;
+  --darker-gray: #3c3c3c;
+  --dark-gray: #545454;
+  --light-gray: #9b9b9b;
+  --dark-yellow: #fad354;
+  --strong-pink: #ff198c;
+  --light-blue: #1e90ff;
 }
 
 * {
@@ -15,8 +22,8 @@ a {
 }
 
 body {
+  background-color: var(--white);
   display: grid;
-  background-color: var(--background);
   grid-template-rows: 72px auto;
   grid-template-areas:
     "navigation"

@@ -17,7 +17,7 @@
 .buttonStyle:hover {
   cursor: pointer;
   & span {
-    background-color: rgb(255, 25, 140);
+    background-color: var(--strong-pink);
     transition: all 0.7s ease-in;
   }
 }

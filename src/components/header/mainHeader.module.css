@@ -1,5 +1,5 @@
 .navWrapper {
-  background: linear-gradient(90deg, rgb(42, 42, 42), rgb(84, 84, 84));
+  background: linear-gradient(90deg, var(--dark), var(--dark-gray));
 }
 
 .navMain {
@@ -21,7 +21,7 @@
 
 .navMain__section {
   align-items: center;
-  color: rgb(245, 245, 245);
+  color: var(--light);
   list-style-type: none;
 
   & li {
@@ -35,20 +35,20 @@
     }
 
     & a[aria-label="Get started"] {
-      background-color: rgb(245, 245, 245);
-      color: rgb(42, 42, 42);
+      background-color: var(--light);
+      color: var(--dark);
       font-weight: bold;
-      box-shadow: 2px 2px 5px rgb(155, 155, 155);
+      box-shadow: 2px 2px 5px var(--light-gray);
       border: 2px solid black;
     }
 
     & a:hover {
-      background-color: rgb(250, 211, 84);
-      color: rgb(255, 25, 140);
+      background-color: var(--dark-yellow);
+      color: var(--strong-pink);
       font-weight: bold;
       transition: all 0.7s ease-in;
-      box-shadow: 2px 2px 5px rgb(155, 155, 155);
-      border: 2px solid black;
+      box-shadow: 2px 2px 5px var(--light-gray);
+      border: 2px solid var(--dark);
     }
   }
 }

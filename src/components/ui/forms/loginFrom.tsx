@@ -1,6 +1,6 @@
 import React from "react";
 import LabeledInput from "@/components/ui/inputs/labeledInput";
-import styles from "../authComponent.module.css";
+import styles from "../../userAuth/authComponent.module.css";
 import SubmitButton from "@/components/ui/buttons/submitButton";
 
 type Props = {};

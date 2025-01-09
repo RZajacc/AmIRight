@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../authComponent.module.css";
+import { useActionState } from "react";
+import styles from "../../userAuth/authComponent.module.css";
 import LabeledInput from "@/components/ui/inputs/labeledInput";
 import SubmitButton from "@/components/ui/buttons/submitButton";
 import { signup } from "@/app/actions/auth";
@@ -7,10 +7,13 @@ import { signup } from "@/app/actions/auth";
 type Props = {};
 
 function SignupForm({}: Props) {
+  const [state, action, pending] = useActionState(signup, undefined);
   return (
-    <form className={styles.authForm} action={signup}>
+    <form className={styles.authForm} action={action}>
       <LabeledInput name="username" label="Username:" type="text" required />
+      {state?.errors.username && <p>{state.errors.username}</p>}
       <LabeledInput name="email" label="Email:" type="email" required />
+      {state?.errors.email && <p>{state.errors.email}</p>}
       <LabeledInput
         name="password"
         label="Password:"
@@ -18,6 +21,16 @@ function SignupForm({}: Props) {
         minLength={8}
         required
       />
+      {state?.errors.password && (
+        <div>
+          <p>Password must:</p>
+          <ul>
+            {state.errors.password.map((err) => {
+              return <li key={err}>{err}</li>;
+            })}
+          </ul>
+        </div>
+      )}
       <LabeledInput
         name="password-confirm"
         label="Confirm password:"

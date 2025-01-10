@@ -12,3 +12,8 @@
   color: var(--dark);
   transition: all 0.7s ease-in-out;
 }
+
+.buttonStyle:disabled {
+  background-color: var(--light-gray);
+  color: var(--dark);
+}

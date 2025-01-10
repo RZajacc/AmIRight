@@ -38,7 +38,7 @@ function SignupForm({}: Props) {
         required
       />
       {state?.errors.confirm && <p>{state.errors.confirm}</p>}
-      <SubmitButton text="Signup" />
+      <SubmitButton text="Signup" disabled={pending} />
     </form>
   );
 }

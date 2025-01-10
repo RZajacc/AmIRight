@@ -3,7 +3,7 @@ import styles from "./submitButton.module.css";
 
 type Props = {
   text: string;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 function SubmitButton({ text }: Props) {
   return (

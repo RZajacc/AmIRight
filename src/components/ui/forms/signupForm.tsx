@@ -32,11 +32,12 @@ function SignupForm({}: Props) {
         </div>
       )}
       <LabeledInput
-        name="password-confirm"
+        name="confirm"
         label="Confirm password:"
         type="password"
         required
       />
+      {state?.errors.confirm && <p>{state.errors.confirm}</p>}
       <SubmitButton text="Signup" />
     </form>
   );

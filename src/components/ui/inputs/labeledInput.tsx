@@ -5,15 +5,22 @@ type Props = {
   name: string;
   label: string;
   type: string;
+  invalid: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-function LabeledInput({ name, label, type, ...props }: Props) {
+function LabeledInput({ name, label, type, invalid, ...props }: Props) {
+  console.log("INVALID", invalid);
   return (
     <>
       <label htmlFor={name} className={styles.input_label}>
         {label}
       </label>
-      <input type={type} name={name} className={styles.input} {...props} />
+      <input
+        type={type}
+        name={name}
+        className={`${styles.input} ${invalid && styles.invalid}`}
+        {...props}
+      />
     </>
   );
 }

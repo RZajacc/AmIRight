@@ -12,3 +12,7 @@
     border: 2px solid var(--light-blue);
   }
 }
+
+.invalid {
+  border: 1px solid var(--light-red);
+}

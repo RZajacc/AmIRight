@@ -10,11 +10,11 @@
   & h3 {
     text-align: center;
   }
+}
 
-  & p {
-    text-align: end;
-    padding: 0.3rem;
-  }
+.formFooter {
+  text-align: end;
+  padding: 0.3rem;
 }
 
 .toggle_button {

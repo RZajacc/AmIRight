@@ -1,4 +1,6 @@
 import { FormState, SignupFormSchema } from "@/lib/definitions";
+import dbConnect from "@/lib/dbConnect";
+import User from "@/models/User";
 
 export async function signup(state: FormState, formData: FormData) {
   const validatedFields = SignupFormSchema.safeParse({
@@ -13,4 +15,7 @@ export async function signup(state: FormState, formData: FormData) {
       errors: validatedFields.error.flatten().fieldErrors,
     };
   }
+  // await dbConnect();
+  // If succeded
+  // await User.create(validatedFields.data);
 }

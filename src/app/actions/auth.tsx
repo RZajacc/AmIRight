@@ -1,4 +1,4 @@
-import { FormState, SignupFormSchema } from "../lib/definitions";
+import { FormState, SignupFormSchema } from "@/lib/definitions";
 
 export async function signup(state: FormState, formData: FormData) {
   const validatedFields = SignupFormSchema.safeParse({

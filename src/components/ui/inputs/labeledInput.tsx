@@ -9,7 +9,6 @@ type Props = {
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 function LabeledInput({ name, label, type, invalid, ...props }: Props) {
-  console.log("INVALID", invalid);
   return (
     <>
       <label htmlFor={name} className={styles.input_label}>

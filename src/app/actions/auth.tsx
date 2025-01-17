@@ -28,11 +28,15 @@ export async function signup(state: FormState, formData: FormData) {
   const hashedPsw = await bcrypt.hash(validatedFields.data.password, 10);
 
   // Create a user in the DB
-  await User.create({
-    name: validatedFields.data.username,
-    email: validatedFields.data.email,
-    password: hashedPsw,
-  });
+  try {
+    await User.create({
+      name: validatedFields.data.username,
+      email: validatedFields.data.email,
+      password: hashedPsw,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 
   // redirect("/");
 }

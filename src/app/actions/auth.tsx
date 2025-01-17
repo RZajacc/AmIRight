@@ -2,6 +2,8 @@
 import { FormState, SignupFormSchema } from "@/lib/definitions";
 import dbConnect from "@/lib/dbConnect";
 import User from "@/models/User";
+import bcrypt from "bcrypt";
+import { redirect } from "next/navigation";
 
 export async function signup(state: FormState, formData: FormData) {
   // Validate form data with Zod
@@ -23,11 +25,14 @@ export async function signup(state: FormState, formData: FormData) {
   await dbConnect();
 
   // Encrypt the password
+  const hashedPsw = await bcrypt.hash(validatedFields.data.password, 10);
 
   // Create a user in the DB
   await User.create({
     name: validatedFields.data.username,
     email: validatedFields.data.email,
-    password: validatedFields.data.password,
+    password: hashedPsw,
   });
+
+  // redirect("/");
 }

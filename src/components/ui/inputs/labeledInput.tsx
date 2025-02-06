@@ -5,7 +5,7 @@ type Props = {
   name: string;
   label: string;
   type: string;
-  invalid: boolean;
+  invalid?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 function LabeledInput({ name, label, type, invalid, ...props }: Props) {

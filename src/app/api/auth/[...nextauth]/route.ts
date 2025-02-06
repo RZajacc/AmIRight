@@ -33,6 +33,9 @@ const handler = NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: "/user",
+  },
 });
 
 export { handler as GET, handler as POST };

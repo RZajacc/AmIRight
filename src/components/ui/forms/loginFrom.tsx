@@ -2,12 +2,18 @@ import React from "react";
 import LabeledInput from "@/components/ui/inputs/labeledInput";
 import styles from "../../userAuth/authComponent.module.css";
 import SubmitButton from "@/components/ui/buttons/submitButton";
+import { signIn } from "next-auth/react";
 
 type Props = {};
 
 function LoginFrom({}: Props) {
   return (
-    <form className={styles.authForm}>
+    <form
+      className={styles.authForm}
+      // action={async (formData) => {
+      //   await signIn("credentials", formData);
+      // }}
+    >
       <LabeledInput name="email" label="Email:" type="email" required />
       <LabeledInput
         name="password"

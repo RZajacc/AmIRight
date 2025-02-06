@@ -2,6 +2,8 @@ import NextAuth from "next-auth";
 import client from "@/lib/mongoDB";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
+import dbConnect from "@/lib/dbConnect";
+import User from "@/models/User";
 
 const handler = NextAuth({
   adapter: MongoDBAdapter(client),
@@ -9,26 +11,21 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "email", type: "email" },
+        email: { label: "email", type: "email" },
         password: { label: "password", type: "password" },
       },
       async authorize(credentials, req) {
-        // You need to provide your own logic here that takes the credentials
-        // submitted and returns either a object representing a user or value
-        // that is false/null if the credentials are invalid.
-        // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
-        // You can also use the `req` object to obtain additional parameters
-        // (i.e., the request IP address)
-
-        const res = await fetch("/your/endpoint", {
-          method: "POST",
-          body: JSON.stringify(credentials),
-          headers: { "Content-Type": "application/json" },
-        });
-        const user = await res.json();
+        // Connect to the database
+        await dbConnect();
+        // Find user
+        const user = await User.findOne({ email: credentials?.email });
+        // If user doesnt exist return an error
+        if (!user) {
+          throw new Error("User with provided email not found");
+        }
 
         // If no error and we have user data, return it
-        if (res.ok && user) {
+        if (user) {
           return user;
         }
         // Return null if user data could not be retrieved

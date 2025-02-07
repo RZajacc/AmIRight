@@ -15,6 +15,7 @@ function LabeledInput({ name, label, type, invalid, ...props }: Props) {
         {label}
       </label>
       <input
+        id={name}
         type={type}
         name={name}
         className={`${styles.input} ${invalid && styles.invalid}`}

@@ -7,13 +7,25 @@ import { signIn } from "next-auth/react";
 type Props = {};
 
 function LoginFrom({}: Props) {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    const result = await signIn("credentials", {
+      email: email,
+      password: password,
+      redirect: false,
+    });
+
+    console.log("STATUS", result?.status);
+    console.log("ERROR", result?.error);
+  };
+
   return (
-    <form
-      className={styles.authForm}
-      // action={async (formData) => {
-      //   await signIn("credentials", formData);
-      // }}
-    >
+    <form className={styles.authForm} onSubmit={handleLogin}>
       <LabeledInput name="email" label="Email:" type="email" required />
       <LabeledInput
         name="password"

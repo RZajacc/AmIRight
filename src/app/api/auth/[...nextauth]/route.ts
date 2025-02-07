@@ -4,6 +4,7 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import dbConnect from "@/lib/dbConnect";
 import User from "@/models/User";
+import bcrypt from "bcrypt";
 
 const handler = NextAuth({
   adapter: MongoDBAdapter(client),
@@ -26,10 +27,19 @@ const handler = NextAuth({
           throw new Error("User with provided email not found");
         }
 
+        // Check if passwords match
+        const psw = await bcrypt.compare(credentials!.password, user.password);
+
+        // If password doesnt match, retrun error
+        if (!psw) {
+          throw new Error("Wrong password!");
+        }
+
         // If no error and we have user data, return it
-        if (user) {
+        if (user && psw) {
           return user;
         }
+
         // Return null if user data could not be retrieved
         return null;
       },

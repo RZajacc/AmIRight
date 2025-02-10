@@ -1,13 +1,10 @@
 import NextAuth from "next-auth";
-import client from "@/lib/mongoDB";
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import dbConnect from "@/lib/dbConnect";
-import User from "@/models/User";
 import bcrypt from "bcrypt";
+import UserModel from "@/models/User";
 
 const handler = NextAuth({
-  adapter: MongoDBAdapter(client),
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -20,7 +17,9 @@ const handler = NextAuth({
         await dbConnect();
 
         // Find user
-        const user = await User.findOne({ email: credentials?.email });
+        const user = await UserModel.findOne({
+          email: credentials?.email,
+        });
 
         // If user doesnt exist return an error
         if (!user) {
@@ -34,6 +33,8 @@ const handler = NextAuth({
         if (!psw) {
           throw new Error("Wrong password!");
         }
+
+        console.log("USER IN AUTH", user);
 
         // If no error and we have user data, return it
         if (user && psw) {

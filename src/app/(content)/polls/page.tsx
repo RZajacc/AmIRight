@@ -1,11 +1,8 @@
-import { Metadata } from "next";
+import { getServerSession } from "next-auth";
 
-export const metadata: Metadata = {
-  title: "Polls",
-  description: "Currently ongoing polls",
-};
-
-function Polls() {
+async function Polls() {
+  const session = await getServerSession();
+  console.log(session?.user);
   return <main>Polls</main>;
 }
 

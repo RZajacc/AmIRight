@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import LabeledInput from "@/components/ui/inputs/labeledInput";
 import styles from "../../userAuth/authComponent.module.css";
 import SubmitButton from "@/components/ui/buttons/submitButton";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 function LoginFrom({}: Props) {
+  const [LoginError, setLoginError] = useState<string | null>(null);
+  const router = useRouter();
+
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -20,8 +24,14 @@ function LoginFrom({}: Props) {
       redirect: false,
     });
 
-    console.log("STATUS", result?.status);
-    console.log("ERROR", result?.error);
+    // Assign error to login form
+    if (result?.error) {
+      setLoginError(result.error);
+    } else {
+      // If theres no error reset error element and redirect
+      setLoginError(null);
+      router.push("/polls");
+    }
   };
 
   return (
@@ -31,9 +41,9 @@ function LoginFrom({}: Props) {
         name="password"
         label="Password:"
         type="password"
-        minLength={8}
         required
       />
+      {LoginError && <p className={styles.errField}>{LoginError}</p>}
       <SubmitButton text="Login" />
     </form>
   );

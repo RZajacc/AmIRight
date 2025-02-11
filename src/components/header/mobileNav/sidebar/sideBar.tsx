@@ -3,6 +3,7 @@ import styles from "./sidebar.module.css";
 import cancelButton from "@/assets/cancel-svgrepo-com.svg";
 import Image from "next/image";
 import NavLink from "@/components/ui/links/navLink";
+import { useSession } from "next-auth/react";
 
 type Props = {
   visible: boolean;
@@ -10,6 +11,7 @@ type Props = {
 };
 
 export default function SideBar({ visible, setVisible }: Props) {
+  const { data: session } = useSession();
   const handleClosingSidebar = () => {
     setVisible((prevVal) => !prevVal);
   };
@@ -34,15 +36,27 @@ export default function SideBar({ visible, setVisible }: Props) {
             Polls
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            href="/user"
-            onClick={handleClosingSidebar}
-            aria-label="Get started"
-          >
-            Get started
-          </NavLink>
-        </li>
+        {session?.user ? (
+          <li>
+            <NavLink
+              href="/user/account"
+              onClick={handleClosingSidebar}
+              aria-label="Get started"
+            >
+              {session.user.name}
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <NavLink
+              href="/user"
+              onClick={handleClosingSidebar}
+              aria-label="Get started"
+            >
+              Get started
+            </NavLink>
+          </li>
+        )}
       </ul>
       {/* Backdrop */}
       {visible && (

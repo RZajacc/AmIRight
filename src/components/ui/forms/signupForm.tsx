@@ -15,20 +15,20 @@ function SignupForm({}: Props) {
         name="username"
         label="Username:"
         type="text"
-        invalid={state?.errors.username ? true : false}
+        invalid={state?.errors?.username ? true : false}
         required
       />
-      {state?.errors.username && (
+      {state?.errors?.username && (
         <p className={styles.errParagraph}>{state.errors.username}</p>
       )}
       <LabeledInput
         name="email"
         label="Email:"
         type="email"
-        invalid={state?.errors.email ? true : false}
+        invalid={state?.errors?.email ? true : false}
         required
       />
-      {state?.errors.email && (
+      {state?.errors?.email && (
         <p className={styles.errParagraph}>{state.errors.email}</p>
       )}
       <LabeledInput
@@ -36,10 +36,10 @@ function SignupForm({}: Props) {
         label="Password:"
         type="password"
         minLength={8}
-        invalid={state?.errors.password ? true : false}
+        invalid={state?.errors?.password ? true : false}
         required
       />
-      {state?.errors.password && (
+      {state?.errors?.password && (
         <div>
           <p className={styles.errParagraph}>Password must:</p>
           <ul className={styles.errList}>
@@ -53,13 +53,24 @@ function SignupForm({}: Props) {
         name="confirm"
         label="Confirm password:"
         type="password"
-        invalid={state?.errors.confirm ? true : false}
+        invalid={state?.errors?.confirm ? true : false}
         required
       />
-      {state?.errors.confirm && (
+      {state?.errors?.confirm && (
         <p className={styles.errParagraph}>{state.errors.confirm}</p>
       )}
       <SubmitButton text="Signup" disabled={pending} />
+      {state?.message && (
+        <p
+          className={
+            state.message.startsWith("Registration")
+              ? styles.successField
+              : styles.errField
+          }
+        >
+          {state.message}
+        </p>
+      )}
     </form>
   );
 }

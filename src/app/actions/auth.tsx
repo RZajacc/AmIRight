@@ -21,22 +21,40 @@ export async function signup(state: FormState, formData: FormData) {
     };
   }
 
+  // Prepare all variables
+  const { username, email, password } = validatedFields.data;
+
   // Connect to the DB
   await dbConnect();
 
   // Encrypt the password
-  const hashedPsw = await bcrypt.hash(validatedFields.data.password, 10);
+  const hashedPsw = await bcrypt.hash(password, 10);
 
-  // Create a user in the DB
+  // Check if email is already registered
   try {
-    await User.create({
-      name: validatedFields.data.username,
-      email: validatedFields.data.email,
-      password: hashedPsw,
-    });
+    const user = await User.find({ email: email });
+    if (user.length !== 0) {
+      return {
+        message: "This email is already in use!",
+      };
+    }
   } catch (error) {
     console.log(error);
   }
 
-  // redirect("/");
+  // Create a user in the DB
+  try {
+    const user = await User.create({
+      name: username,
+      email: email,
+      password: hashedPsw,
+    });
+    if (user) {
+      return {
+        message: "Registration successfull!",
+      };
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }

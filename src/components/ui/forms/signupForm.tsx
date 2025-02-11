@@ -17,7 +17,7 @@ function SignupForm({}: Props) {
 
     if (msg) {
       setTimeout(() => {
-        router.push("/polls");
+        router.push("/user");
       }, 2000);
     }
   };

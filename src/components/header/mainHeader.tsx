@@ -35,20 +35,11 @@ function MainHeader({}: Props) {
               <NavLink href="/polls">Polls</NavLink>
             </li>
             {session?.user ? (
-              <>
-                <li>
-                  <NavLink href="/user" aria-label="Get started">
-                    {session.user.name}
-                  </NavLink>
-                </li>
-                <button
-                  onClick={async () => {
-                    await signOut();
-                  }}
-                >
-                  Logout
-                </button>
-              </>
+              <li>
+                <NavLink href="/user/account" aria-label="Get started">
+                  {session.user.name}
+                </NavLink>
+              </li>
             ) : (
               <li>
                 <NavLink href="/user" aria-label="Get started">

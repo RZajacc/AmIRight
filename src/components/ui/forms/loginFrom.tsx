@@ -30,7 +30,7 @@ function LoginFrom({}: Props) {
     } else {
       // If theres no error reset error element and redirect
       setLoginError(null);
-      router.push("/polls");
+      router.push("/user/account");
     }
   };
 

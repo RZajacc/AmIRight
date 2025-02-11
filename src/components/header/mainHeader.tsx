@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import styles from "./mainHeader.module.css";
 import NavLink from "../ui/links/navLink";
 import MobileNav from "./mobileNav/mobileNav";
+import { signOut, useSession } from "next-auth/react";
 
 type Props = {};
 
 function MainHeader({}: Props) {
   const [visible, setVisible] = useState(false);
+  const { data: session } = useSession();
   return (
     <header>
       <nav className={styles.navWrapper}>
@@ -32,11 +34,28 @@ function MainHeader({}: Props) {
             <li>
               <NavLink href="/polls">Polls</NavLink>
             </li>
-            <li>
-              <NavLink href="/user" aria-label="Get started">
-                Get Started
-              </NavLink>
-            </li>
+            {session?.user ? (
+              <>
+                <li>
+                  <NavLink href="/user" aria-label="Get started">
+                    {session.user.name}
+                  </NavLink>
+                </li>
+                <button
+                  onClick={async () => {
+                    await signOut();
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <li>
+                <NavLink href="/user" aria-label="Get started">
+                  Get Started
+                </NavLink>
+              </li>
+            )}
           </div>
           {/* Hamburger menu section */}
           <div className={styles.navMain__section} aria-label="mobile-nav">

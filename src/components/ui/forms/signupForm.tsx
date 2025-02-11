@@ -1,13 +1,28 @@
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import styles from "../../userAuth/authComponent.module.css";
 import LabeledInput from "@/components/ui/inputs/labeledInput";
 import SubmitButton from "@/components/ui/buttons/submitButton";
 import { signup } from "@/app/actions/auth";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 function SignupForm({}: Props) {
   const [state, action, pending] = useActionState(signup, undefined);
+  const router = useRouter();
+
+  // Redirect after successfull registration
+  const redirectAfter = () => {
+    const msg = state?.message?.startsWith("Registration");
+
+    if (msg) {
+      setTimeout(() => {
+        router.push("/polls");
+      }, 2000);
+    }
+  };
+
+  redirectAfter();
 
   return (
     <form className={styles.authForm} action={action}>
